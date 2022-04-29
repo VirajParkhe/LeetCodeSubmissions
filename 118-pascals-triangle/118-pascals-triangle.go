@@ -11,13 +11,12 @@ func generate(numRows int) [][]int {
     for i:=0;i<numRows-2;i++{
         temp := []int{1}
         k :=1
-        for ;k<len(prev);{
-            temp = append(temp, prev[k-1]+prev[k])
+        for ;k<i+2;{
+            temp = append(temp, ret[i+1][k-1]+ret[i+1][k])
             k++
         }
         temp = append(temp,1)
         ret = append(ret, temp)
-        prev = temp
     }
     return ret
 }
