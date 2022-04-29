@@ -9,8 +9,8 @@
 var path []int
 func trav(root *TreeNode){
     if root != nil {
-        trav(root.Left )
-        trav(root.Right )
+        trav(root.Left)
+        trav(root.Right)
         path = append(path, root.Val) 
     }
 }
