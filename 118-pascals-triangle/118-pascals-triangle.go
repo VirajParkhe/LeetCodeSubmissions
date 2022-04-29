@@ -10,10 +10,9 @@ func generate(numRows int) [][]int {
     }
     for i:=0;i<numRows-2;i++{
         temp := []int{1}
-        j,k :=0,1
+        k :=1
         for ;k<len(prev);{
-            temp = append(temp, prev[j]+prev[k])
-            j++
+            temp = append(temp, prev[k-1]+prev[k])
             k++
         }
         temp = append(temp,1)
