@@ -6,15 +6,17 @@
  *     Right *TreeNode
  * }
  */
-func trav(root *TreeNode, path []int) []int{
+var path []int
+func trav(root *TreeNode){
     if root != nil {
         path = append(path, root.Val)
-        path= trav(root.Left, path)
-        path =trav(root.Right, path)
+        trav(root.Left )
+       trav(root.Right )
     }
-    return path
 }
 
 func preorderTraversal(root *TreeNode) []int {
-    return trav(root, []int{})
+    path = []int{}
+    trav(root)
+    return path
 }
