@@ -2,9 +2,9 @@ func getRow(rowIndex int) []int {
     nC := 1
     temp := []int{nC}
     for i:=1;i<=rowIndex;i++{
-        nCr := (nC * (rowIndex - i+1))/i
-        temp = append(temp, nCr)
-        nC = nCr
+        
+        temp = append(temp, (nC * (rowIndex - i+1))/i)
+        nC = (nC * (rowIndex - i+1))/i
     }
     return temp
 }
