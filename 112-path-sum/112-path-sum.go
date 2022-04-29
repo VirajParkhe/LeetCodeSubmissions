@@ -8,9 +8,8 @@
  */
 func sum(root *TreeNode, targetSum int)bool {
     if root == nil && targetSum == 0 {
-        return true
-    }else if root == nil && targetSum != 0 {
-        return false
+        return targetSum == 0
+
     }
     if root.Left != nil {
         l := sum(root.Left, targetSum - root.Val)
