@@ -6,25 +6,24 @@
  * }
  */
 func mergeNodes(head *ListNode) *ListNode {
-    var p1, head2 *ListNode
-    p2 := head.Next
+    var prev, p1, p2, newHead *ListNode
+    p1, p2 = head.Next, head.Next
     sum := 0
-    for ;p2 != nil; {
+    for;p2 != nil; p2 = p2.Next{
         if p2.Val == 0 {
-            temp :=&ListNode{sum, nil}
-            if p1 == nil {
-                p1 = temp
-                head2 = p1
+            p1.Val = sum
+            sum = 0
+            p1.Next = nil
+            if prev != nil {
+                prev.Next = p1
             }else{
-               p1.Next = temp
-               p1= temp
+                newHead = p1
             }
-            p2 = p2.Next
-            sum =0
-        }else{
-            sum+=p2.Val
-            p2 = p2.Next
+            prev = p1
+            p1 = p2.Next
+        }else {
+            sum += p2.Val
         }
     }
-    return head2
+    return newHead
 }
