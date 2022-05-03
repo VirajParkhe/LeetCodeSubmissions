@@ -27,7 +27,7 @@ func executeInstructions(n int, startPos []int, s string) []int {
         broken := false
         for j:=i;j<l;j++{
             xt, yt := getNextVal(x, y, string(s[j]))
-            if !isInBounds(xt, yt, n) {
+            if !(xt >=0 && xt<=n-1 && yt>=0 && yt<=n-1) {
                 broken = true
                 ret = append(ret, count)
                 break
