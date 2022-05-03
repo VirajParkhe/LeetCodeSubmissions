@@ -8,38 +8,31 @@
  */
 func deepestLeavesSum(root *TreeNode) int {
     children := []*TreeNode{root, nil}
+    prev := -1
     for ;; {
-        added := false
+        sum :=0
         l := len(children)
         for _, val := range children {
             if val == nil {
                 children = append(children, nil)
                 break
             }
+            sum+=val.Val
             if val.Left != nil {
-                added = true
                 children = append(children, val.Left)
             }
             if val.Right != nil {
-                added = true
                 children = append(children,val.Right )
             }
         }
-         if !added{
-            sum := 0
-            for i:=len(children)-3;i>=0;i--{
-        
-                if children[i] == nil {
-                    break
-                }
-                sum +=children[i].Val
-            }
-            return sum
+        if sum != 0 {
+            prev = sum
         }
-        children = children[l:]
+        if sum == 0 {
+            return prev
+        }
        
-       
-        
+        children = children[l:]      
     } 
     return -1
 }
