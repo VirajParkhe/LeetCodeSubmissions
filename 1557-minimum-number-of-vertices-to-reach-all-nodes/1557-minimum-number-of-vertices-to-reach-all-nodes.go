@@ -5,9 +5,10 @@ type edge struct {
 
 func findSmallestSetOfVertices(n int, edges [][]int) []int {
     m := map[int]edge{}
+    var in, out int
     for i:=0;i<len(edges);i++{
-        out := edges[i][0]
-        in := edges[i][1]
+        out = edges[i][0]
+        in = edges[i][1]
         if val, ok := m[in]; !ok{
             m[in] = edge{1,0}
         }else{
