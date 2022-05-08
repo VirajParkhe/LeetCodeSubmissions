@@ -42,12 +42,6 @@ func flatten(nList []*NestedInteger) []*NestedInteger {
     return ret
 }
 
-func printLst(nList []*NestedInteger) {
-    for i:=0;i<len(nList);i++{
-        fmt.Printf("%d->", nList[i].GetInteger())
-    }
-    fmt.Println(" ")
-}
 
 func Constructor(nestedList []*NestedInteger) *NestedIterator {
     lst := flatten(nestedList)
