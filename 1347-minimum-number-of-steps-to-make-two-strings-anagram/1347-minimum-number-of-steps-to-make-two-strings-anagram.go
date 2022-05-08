@@ -8,7 +8,6 @@ func minSteps(s string, t string) int {
             m[r] = 1
         }
     }
-    fmt.Println(m)
     count := 0
     for _, r := range t {
         if v, ok := m[r]; ok {
