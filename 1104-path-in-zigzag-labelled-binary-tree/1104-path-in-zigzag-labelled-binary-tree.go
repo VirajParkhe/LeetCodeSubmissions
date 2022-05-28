@@ -21,7 +21,6 @@ func pathInZigZagTree(label int) []int {
             break
         }
         mid := float64((start+end)/2)
-        fmt.Println(start, end, mid, isDesc, label)
         if float64(label) > mid {
             if isDesc {
                 path = append(path, 0)
@@ -52,7 +51,6 @@ func pathInZigZagTree(label int) []int {
         
         
     }
-    fmt.Println(path)
     ret := []int{1}
     start = 1
     isDesc = false
@@ -66,7 +64,6 @@ func pathInZigZagTree(label int) []int {
         left := 2*start
         right :=  2*start+1
         total := int(math.Pow(float64(2), float64(level))) + int(math.Pow(float64(2), float64(level+1))) -1
-        fmt.Println(left, right, total, level, isDesc, val)
         level++
         if isDesc{
             if val == 0 {
@@ -95,8 +92,6 @@ func pathInZigZagTree(label int) []int {
             }
         }
     }
-    
-    fmt.Println(ret)
     return ret
     
 }
