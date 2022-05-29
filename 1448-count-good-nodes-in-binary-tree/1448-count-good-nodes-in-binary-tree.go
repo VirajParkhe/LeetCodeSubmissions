@@ -8,27 +8,20 @@
  */
 func goodNodes(root *TreeNode) int {
     ret := 0
-    findGoodNodes(root,&[]*TreeNode{}, &ret)
+    findGoodNodes(root, nil, root.Val,&ret)
     return ret
 }
 
-func findGoodNodes(root *TreeNode, nodes *[]*TreeNode, count *int) {
+func findGoodNodes(root, parent *TreeNode,max int, count *int) {
     if root == nil {
         return
     }
-    isGood := true
-    for i:=0;i<len(*nodes);i++{
-        if (*nodes)[i].Val > root.Val{
-            isGood = false
-            break
-        }
-    }
-    if isGood {
+    if parent == nil || ( (root.Val >= max) ) {
         *count +=1
     }
-    *nodes = append(*nodes, root)
-    findGoodNodes(root.Left, nodes, count)
-    findGoodNodes(root.Right, nodes, count)
-    *nodes =(*nodes)[:len(*nodes)-1]
-    return
+    if root.Val > max {
+        max = root.Val
+    }
+    findGoodNodes(root.Left, root, max, count)
+    findGoodNodes(root.Right, root, max, count)
 }
